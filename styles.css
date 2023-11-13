@@ -1,0 +1,25 @@
+body{
+    width: 100%;
+    height: auto;
+    background-repeat: repeat;
+}
+@font-face {
+    font-family: RodinHimawari;
+    src: url(assets/FOT-RodinHimawari\ Pro\ UB.otf);
+  }
+@font-face {
+    font-family: Seurat;
+    src: url(assets/FOT-Seurat\ Pro\ UB.otf);
+  }
+h1{
+font-family: Coustard;
+font-weight: 700;
+}
+h2, h3{
+    font-family: RodinHimawari;
+    font-weight: 400;
+}
+p{
+    font-family: Seurat;
+    font-weight: 400;
+}
