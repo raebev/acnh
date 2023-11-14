@@ -12,8 +12,17 @@ font-family: Zilla Slab;
 font-weight: 900;
 }
 h2, h3{
-    font-family: RodinHimawari;
+    font-family: "fot-seurat-pron", sans-serif;
     font-weight: 300;
+    color: #fff;
+    margin: 0px;
+}
+
+h2{
+font-size: 2rem;
+}
+.am-pm{
+    font-size: 1.25rem;
 }
 p, li, a{
     font-family: "fot-seurat-pron", sans-serif;
@@ -37,6 +46,7 @@ li:hover{
     background-color: #feca00; 
     border-radius: 15px;
     background-size: 15px;
+    transition: background-color 0.25s;
 }
 
 ul{
@@ -81,15 +91,15 @@ body{
     display:none;
     height: 250px;
     width: 320px;
-    padding: 50px 70px 50px 30px;
+    padding: 20px;
     background-image: url("assets/menu.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
     float: right;
     position: relative;
-    top: 75px;
-    left: 350px;
+    top: 35px;
+    left: 240px;
 }
 
 .row{
@@ -99,7 +109,24 @@ body{
     width: 600px;
     margin-left: auto;
     margin-right: auto;
-    
+}
+
+.day-of-week{
+    border-radius: 25px;
+    padding: 5px;
+    color: black;
+    mix-blend-mode: lighten;
+    background-color: rgb(255, 255, 255);
+}
+
+hr{
+    width: 150px;
+    margin: 0px 0px 10px 0px;
+    border: none;
+    height: 3px;
+    color: #fff;
+    background-color: #fff;
+    border-radius: 5px;
 }
 /* Module CSS End */
 
