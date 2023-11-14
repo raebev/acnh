@@ -107,6 +107,7 @@ pageTime.innerHTML = `${currentHour}:${currentMin} <span class="am-pm">${amPM}</
 pageDate.innerHTML = `${monthWritten} ${currentDate} <span class="day-of-week">&nbsp;${dayWritten}.&nbsp;</span>`;
 
   }
+  getDate();
   setInterval(getDate, 1000);
   
 //Menu popup function
