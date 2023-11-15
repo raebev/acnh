@@ -108,7 +108,7 @@ pageDate.innerHTML = `${monthWritten} ${currentDate} <span class="day-of-week">&
 
   }
   getDate();
-  //setInterval(getDate, 1000);
+  setInterval(getDate, 1000);
   
 //Menu popup function
 const menu = document.querySelector("#menu");
