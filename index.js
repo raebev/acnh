@@ -108,18 +108,80 @@ pageDate.innerHTML = `${monthWritten} ${currentDate} <span class="day-of-week">&
 
   }
   getDate();
-  setInterval(getDate, 1000);
+  //setInterval(getDate, 1000);
   
 //Menu popup function
+const menu = document.querySelector("#menu");
+const arrow = document.querySelector("#arrow");
+arrow.style.opacity= "0";
+
 function popUp(){
-    const menu = document.querySelector("#menu");
-    const arrow = document.querySelector("#arrow");
     menu.style.display= "block";  
     arrow.style.opacity= "0";  
 }
 
-//Menu event listener
+function close(){
+  menu.style.display= "none";  
+  arrow.style.opacity= "1"; 
+}
+
+//Menu popup event listener
   document.getElementById("arrow").addEventListener("click", popUp);
 
 //Change background image based on current month
   body.style.backgroundImage=`url("assets/${currentMonth}.png")`;
+
+//API connection
+const apiKey = '2af030de-21b7-4936-ab6a-262a70286fc6';
+const BASE_API_URI = "https://api.nookipedia.com/villagers";
+
+let button = document.querySelectorAll("button");
+let imageID = document.querySelector("#villager");
+let chatBubb = document.querySelector("#chat-bubble");
+let opt1 = document.querySelector("#quote");
+let opt2 = document.querySelector("#sign");
+let opt3 = document.querySelector("#species");
+let opt4 = document.querySelector("#catchphrase");
+let opt5 = document.querySelector("#nevermind");
+
+for (let i=0; i<button.length; ++i) {
+button[i].addEventListener("click", async (e) =>{
+  nameID = button[i].id;
+    const url = `${BASE_API_URI}?name=${nameID}`;
+    const villagerInfo = await window.axios.get(url, {headers: {"X-API-KEY": apiKey}});
+    console.log(villagerInfo);
+    const villagerName = villagerInfo.data[0].name;
+    const villagerImage = villagerInfo.data[0].image_url;
+    const villagerQuote = villagerInfo.data[0].quote;
+    const villagerSign = villagerInfo.data[0].sign;
+    const villagerSpecies = villagerInfo.data[0].species;
+    const villagerCatch = villagerInfo.data[0].phrase;
+    const villagerBirthMonth = villagerInfo.data[0].birthday_month;
+    const villagerBirthDay = villagerInfo.data[0].birthday_day;
+
+    imageID.style.backgroundImage=`url("${villagerImage}")`;
+    chatBubb.innerHTML=(`<p>Hi, <span style="color: #0eb8d2;">${villagerName}</span>!</p><br><br>`);
+    arrow.style.opacity= "1"; 
+    function quote(){
+      close();
+      chatBubb.innerHTML=(`<p>${villagerQuote}<br><br>`);
+    }
+    function sign(){
+      close();
+      chatBubb.innerHTML=(`<p>${villagerSign}<br><br>`);
+    }
+    function species(){
+      close();
+      chatBubb.innerHTML=(`<p>${villagerSpecies}<br><br>`);
+    }
+    function catchphrase(){
+      close();
+      chatBubb.innerHTML=(`<p>${villagerCatch}<br><br>`);
+    }
+    opt1.addEventListener("click", quote);
+    opt2.addEventListener("click", sign);
+    opt3.addEventListener("click", species);
+    opt4.addEventListener("click", catchphrase);
+    opt5.addEventListener("click", close);
+});
+}
