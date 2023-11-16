@@ -164,19 +164,19 @@ button[i].addEventListener("click", async (e) =>{
     arrow.style.opacity= "1"; 
     function quote(){
       close();
-      chatBubb.innerHTML=(`<p>${villagerQuote}<br><br>`);
+      chatBubb.innerHTML=(`<p>"${villagerQuote}"<br><br>`);
     }
     function sign(){
       close();
-      chatBubb.innerHTML=(`<p>${villagerSign}<br><br>`);
+      chatBubb.innerHTML=(`<p><span style="color: #0eb8d2;">${villagerName}</span>'s sign is ${villagerSign}.<br><br>`);
     }
     function species(){
       close();
-      chatBubb.innerHTML=(`<p>${villagerSpecies}<br><br>`);
+      chatBubb.innerHTML=(`<p><span style="color: #0eb8d2;">${villagerName}</span> is a ${villagerSpecies}.<br><br>`);
     }
     function catchphrase(){
       close();
-      chatBubb.innerHTML=(`<p>${villagerCatch}<br><br>`);
+      chatBubb.innerHTML=(`<p>"${villagerCatch}"<br><br>`);
     }
     opt1.addEventListener("click", quote);
     opt2.addEventListener("click", sign);
